@@ -74,7 +74,7 @@ body {
 .adaptive-menu .footer.fixed-bottom {
   height: var(--aaa-footer-height);
   border-radius: 1rem 1rem 0 0;
-  z-index: 1040;
+  z-index: 9999;
   background-color: var(--aaa-white);
   box-shadow: 0 -3px var(--aaa-shadow) !important;
   padding-bottom: env(safe-area-inset-bottom);
