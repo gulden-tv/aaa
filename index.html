@@ -1,0 +1,316 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Demo: нижнее меню Продукты на Bootstrap 5</title>
+
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="./style.css" rel="stylesheet">
+</head>
+<body>
+  <main class="demo-page">
+    <section class="demo-card">
+      <h1>Демо нижнего мобильного меню</h1>
+      <p>
+        text text text
+      </p>
+    </section>
+  </main>
+
+  <div class="adaptive-menu">
+    <div class="offcanvas offcanvas-bottom adaptive-menu__products" tabindex="-1" id="collapseProducts" aria-labelledby="mobileProductsTitle">
+      <div class="offcanvas-header">
+        <div class="nav-products-close">
+          <button type="button" class="closeButton" data-bs-dismiss="offcanvas" aria-label="Закрыть">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true" xmlns="http://www.w3.org/2000/svg">
+              <path d="M6 6L11.2929 11.2929C11.6834 11.6834 11.6834 12.3166 11.2929 12.7071L6 18" stroke="#7986AA" stroke-width="2" stroke-linecap="round"></path>
+              <path d="M18 6L12.7071 11.2929C12.3166 11.6834 12.3166 12.3166 12.7071 12.7071L18 18" stroke="#7986AA" stroke-width="2" stroke-linecap="round"></path>
+            </svg>
+          </button>
+        </div>
+      </div>
+
+      <div class="nav-products-content">
+        <div class="nav-products-title" id="mobileProductsTitle">Фонды</div>
+
+        <div class="accordion products-accordion" id="productsAccordionFunds">
+          <div class="accordion-item">
+            <h3 class="accordion-header" id="opifHeading">
+              <button class="nav-products-item nav-products-item--opif collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#opifPanel" aria-expanded="false" aria-controls="opifPanel">
+                <span class="nav-products-name">ОПИФ</span>
+                <span class="nav-products-desc">Инвестиции в готовые фонды от 1 000 рублей</span>
+                <svg class="nav-products-arrow" width="20" height="11" viewBox="0 0 35 18" fill="#2C3B50" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                  <path d="M34.0792 1.17301L33.0732 0.164149L17.5141 15.4598C17.3776 15.594 17.1985 15.6655 17.0069 15.6645C16.8152 15.6636 16.6369 15.5889 16.5017 15.4547L1.0956 0.0050307L0.0795997 1.00383L15.4857 16.4535C15.8884 16.8573 16.4264 17.0815 16.9998 17.0844C17.5732 17.0872 18.112 16.8684 18.5201 16.4686L34.0792 1.17301Z"></path>
+                </svg>
+              </button>
+            </h3>
+            <div id="opifPanel" class="accordion-collapse collapse" aria-labelledby="opifHeading" data-bs-parent="#productsAccordionFunds">
+              <div class="nav-products-dropdown">
+                <div class="products-mobile-cards">
+                  <a href="#" class="products-mobile-card">
+                    <div class="products-mobile-card__body">
+                      <div class="products-mobile-card__content">
+                        <div class="products-mobile-card__title">Фонд денежного рынка</div>
+                        <div class="products-mobile-card__desc">Консервативное решение для размещения свободных средств.</div>
+                        <div class="products-mobile-card__yield text-orange">до 16,2%</div>
+                      </div>
+                      <div class="products-mobile-card__image-wrap"><span class="products-mobile-card__image-placeholder">₽</span></div>
+                    </div>
+                  </a>
+
+                  <a href="#" class="products-mobile-card">
+                    <div class="products-mobile-card__body">
+                      <div class="products-mobile-card__content">
+                        <div class="products-mobile-card__title">Облигационный фонд</div>
+                        <div class="products-mobile-card__desc">Портфель облигаций для аккуратного инвестирования.</div>
+                        <div class="products-mobile-card__yield">12,4%</div>
+                      </div>
+                      <div class="products-mobile-card__image-wrap"><span class="products-mobile-card__image-placeholder">%</span></div>
+                    </div>
+                  </a>
+
+                  <div class="products-mobile-cards__all">
+                    <a href="#" class="products-mobile-cards__all-link">все продукты</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="accordion-item">
+            <h3 class="accordion-header" id="bpifHeading">
+              <button class="nav-products-item nav-products-item--bpif collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#bpifPanel" aria-expanded="false" aria-controls="bpifPanel">
+                <span class="nav-products-name">БПИФ</span>
+                <span class="nav-products-desc">Фонды в обращении на Московской Бирже</span>
+                <svg class="nav-products-arrow" width="20" height="11" viewBox="0 0 35 18" fill="#2C3B50" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                  <path d="M34.0792 1.17301L33.0732 0.164149L17.5141 15.4598C17.3776 15.594 17.1985 15.6655 17.0069 15.6645C16.8152 15.6636 16.6369 15.5889 16.5017 15.4547L1.0956 0.0050307L0.0795997 1.00383L15.4857 16.4535C15.8884 16.8573 16.4264 17.0815 16.9998 17.0844C17.5732 17.0872 18.112 16.8684 18.5201 16.4686L34.0792 1.17301Z"></path>
+                </svg>
+              </button>
+            </h3>
+            <div id="bpifPanel" class="accordion-collapse collapse" aria-labelledby="bpifHeading" data-bs-parent="#productsAccordionFunds">
+              <div class="nav-products-dropdown">
+                <div class="products-mobile-cards">
+                  <a href="#" class="products-mobile-card">
+                    <div class="products-mobile-card__body">
+                      <div class="products-mobile-card__content">
+                        <div class="products-mobile-card__title">Биржевой фонд облигаций</div>
+                        <div class="products-mobile-card__desc">Фонд, доступный для покупки через брокерский счет.</div>
+                        <div class="products-mobile-card__yield">10,8%</div>
+                      </div>
+                      <div class="products-mobile-card__image-wrap"><span class="products-mobile-card__image-placeholder">Б</span></div>
+                    </div>
+                  </a>
+                  <div class="products-mobile-cards__all">
+                    <a href="#" class="products-mobile-cards__all-link">все продукты</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="accordion-item">
+            <h3 class="accordion-header" id="qualifiedHeading">
+              <button class="nav-products-item nav-products-item--ipif collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#qualifiedPanel" aria-expanded="false" aria-controls="qualifiedPanel">
+                <span class="nav-products-name">Квалифицированным инвесторам</span>
+                <span class="nav-products-desc">Альтернативные инвестиционные решения</span>
+                <svg class="nav-products-arrow" width="20" height="11" viewBox="0 0 35 18" fill="#2C3B50" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                  <path d="M34.0792 1.17301L33.0732 0.164149L17.5141 15.4598C17.3776 15.594 17.1985 15.6655 17.0069 15.6645C16.8152 15.6636 16.6369 15.5889 16.5017 15.4547L1.0956 0.0050307L0.0795997 1.00383L15.4857 16.4535C15.8884 16.8573 16.4264 17.0815 16.9998 17.0844C17.5732 17.0872 18.112 16.8684 18.5201 16.4686L34.0792 1.17301Z"></path>
+                </svg>
+              </button>
+            </h3>
+            <div id="qualifiedPanel" class="accordion-collapse collapse" aria-labelledby="qualifiedHeading" data-bs-parent="#productsAccordionFunds">
+              <div class="nav-products-dropdown">
+                <div class="products-mobile-cards">
+                  <div class="products-mobile-cards__group-title">ИПИФ</div>
+                  <a href="#" class="products-mobile-card">
+                    <div class="products-mobile-card__body">
+                      <div class="products-mobile-card__content">
+                        <div class="products-mobile-card__title">Альтернативные фонды</div>
+                        <div class="products-mobile-card__desc">Решения для инвесторов со статусом квалифицированного инвестора.</div>
+                        <div class="products-mobile-card__yield yield-blur">14,1%</div>
+                      </div>
+                      <div class="products-mobile-card__image-wrap"><span class="products-mobile-card__image-placeholder">Q</span></div>
+                    </div>
+                  </a>
+                  <div class="products-mobile-cards__all">
+                    <a href="#" class="products-mobile-cards__all-link">все продукты</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="nav-products-title">Доверительное управление</div>
+
+        <div class="accordion products-accordion" id="productsAccordionDu">
+          <div class="accordion-item">
+            <h3 class="accordion-header" id="strategyHeading">
+              <button class="nav-products-item nav-products-item--ss collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#strategyPanel" aria-expanded="false" aria-controls="strategyPanel">
+                <span class="nav-products-name">Розничные стратегии управления</span>
+                <span class="nav-products-desc">Готовые инвестиционные решения</span>
+                <svg class="nav-products-arrow" width="20" height="11" viewBox="0 0 35 18" fill="#2C3B50" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                  <path d="M34.0792 1.17301L33.0732 0.164149L17.5141 15.4598C17.3776 15.594 17.1985 15.6655 17.0069 15.6645C16.8152 15.6636 16.6369 15.5889 16.5017 15.4547L1.0956 0.0050307L0.0795997 1.00383L15.4857 16.4535C15.8884 16.8573 16.4264 17.0815 16.9998 17.0844C17.5732 17.0872 18.112 16.8684 18.5201 16.4686L34.0792 1.17301Z"></path>
+                </svg>
+              </button>
+            </h3>
+            <div id="strategyPanel" class="accordion-collapse collapse" aria-labelledby="strategyHeading" data-bs-parent="#productsAccordionDu">
+              <div class="nav-products-dropdown">
+                <div class="products-mobile-cards">
+                  <a href="#" class="products-mobile-card">
+                    <div class="products-mobile-card__body">
+                      <div class="products-mobile-card__content">
+                        <div class="products-mobile-card__title">Сбалансированная стратегия</div>
+                        <div class="products-mobile-card__desc">Готовая стратегия доверительного управления.</div>
+                        <div class="products-mobile-card__yield">13,7%</div>
+                      </div>
+                      <div class="products-mobile-card__image-wrap"><span class="products-mobile-card__image-placeholder">ДУ</span></div>
+                    </div>
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="accordion-item">
+            <h3 class="accordion-header" id="iisHeading">
+              <button class="nav-products-item nav-products-item--iis collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#iisPanel" aria-expanded="false" aria-controls="iisPanel">
+                <span class="nav-products-name">ИИС</span>
+                <span class="nav-products-desc">Стратегии с налоговым вычетом от государства</span>
+                <svg class="nav-products-arrow" width="20" height="11" viewBox="0 0 35 18" fill="#2C3B50" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                  <path d="M34.0792 1.17301L33.0732 0.164149L17.5141 15.4598C17.3776 15.594 17.1985 15.6655 17.0069 15.6645C16.8152 15.6636 16.6369 15.5889 16.5017 15.4547L1.0956 0.0050307L0.0795997 1.00383L15.4857 16.4535C15.8884 16.8573 16.4264 17.0815 16.9998 17.0844C17.5732 17.0872 18.112 16.8684 18.5201 16.4686L34.0792 1.17301Z"></path>
+                </svg>
+              </button>
+            </h3>
+            <div id="iisPanel" class="accordion-collapse collapse" aria-labelledby="iisHeading" data-bs-parent="#productsAccordionDu">
+              <div class="nav-products-dropdown">
+                <div class="products-mobile-cards">
+                  <a href="#" class="products-mobile-card products-mobile-card--iis">
+                    <div class="products-mobile-card__body">
+                      <div class="products-mobile-card__content">
+                        <div class="products-mobile-card__title">ИИС с доверительным управлением</div>
+                        <div class="products-mobile-card__desc">Стратегия с возможностью получения налогового вычета.</div>
+                        <div class="products-mobile-card__desc products-mobile-card__desc--notice text-orange">прием заявлений о присоединении приостановлен</div>
+                      </div>
+                      <div class="products-mobile-card__image-wrap"><span class="products-mobile-card__image-placeholder">И</span></div>
+                    </div>
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <div class="offcanvas offcanvas-bottom adaptive-menu__call" tabindex="-1" id="collapseCall" aria-labelledby="mobileCallTitle">
+      <div class="offcanvas-header">
+        <div class="nav-products-close">
+          <button type="button" class="closeButton" data-bs-dismiss="offcanvas" aria-label="Закрыть">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true" xmlns="http://www.w3.org/2000/svg">
+              <path d="M6 6L11.2929 11.2929C11.6834 11.6834 11.6834 12.3166 11.2929 12.7071L6 18" stroke="#7986AA" stroke-width="2" stroke-linecap="round"></path>
+              <path d="M18 6L12.7071 11.2929C12.3166 11.6834 12.3166 12.3166 12.7071 12.7071L18 18" stroke="#7986AA" stroke-width="2" stroke-linecap="round"></path>
+            </svg>
+          </button>
+        </div>
+      </div>
+
+      <div class="call-content">
+        <a href="tel:88002005454" class="btn-call">Позвонить 8 (800) 200 54 54</a>
+      </div>
+    </div>
+
+    <footer class="footer fixed-bottom navbar shadow-sm d-lg-none">
+      <ul class="nav justify-content-between mb-0 px-4 w-100 text-center">
+        <li class="nav-item js-nav-item-home active">
+          <div class="d-flex justify-content-center">
+            <a href="/" class="nav-link text-muted">
+              <svg viewBox="0 0 40 40" fill="#3D567E" xmlns="http://www.w3.org/2000/svg">
+                            <path
+                                d="m 34.583332,3.1128521 a 0.83807617,0.8559606 0 0 0 -0.833333,0.8511164 v 6.6113525 a 0.83807617,0.8559606 0 0 0 0.833333,0.866314 0.83807617,0.8559606 0 0 0 0.848214,-0.866314 V 3.9639685 A 0.83807617,0.8559606 0 0 0 34.583332,3.1128521 Z M 16.800594,1.0914503 a 0.83815997,0.8560462 0 0 0 -0.01485,0.015197 L 1.25,13.250258 C 0.46866796,13.854194 0,14.763077 0,15.712417 v 21.171524 c 0,1.708705 1.4025091,3.115694 3.1249999,3.115694 H 12.1875 A 0.83815997,0.8560462 0 0 0 13.035714,39.13332 V 20.545543 H 26.964285 V 39.13332 a 0.83815997,0.8560462 0 0 0 0.848214,0.866315 h 9.062499 C 38.59749,39.999635 40,38.592646 40,36.883941 V 19.14728 15.712417 C 40,14.76546 39.542624,13.854222 38.76488,13.250258 L 38.75,13.235084 23.28869,1.1066729 c -1.895854,-1.47530888 -4.528582,-1.47073499 -6.488096,-0.015223 z m 5.476191,1.3678658 15.461308,12.1436089 a 0.83815997,0.8560462 0 0 0 0,0.01518 c 0.430737,0.329941 0.580359,0.647564 0.580359,1.094293 v 3.434863 17.736661 c 0,0.781415 -0.575468,1.398262 -1.443454,1.398262 H 28.645832 V 19.679228 A 0.83815997,0.8560462 0 0 0 27.812499,18.828111 H 12.1875 a 0.83815997,0.8560462 0 0 0 -0.833333,0.851117 V 38.282204 H 3.1249999 c -0.8679827,0 -1.4434524,-0.616851 -1.4434523,-1.398263 V 15.712417 c 0,-0.446728 0.1496237,-0.764351 0.5803573,-1.094293 a 0.83815997,0.8560462 0 0 0 0,-0.01518 L 17.782738,2.4745147 c 1.392863,-1.034609 3.189904,-1.0148366 4.494047,0 z" />
+                        </svg>
+            </a>
+          </div>
+          <div class="d-flex justify-content-center menu-text">главная</div>
+        </li>
+
+        <li class="nav-item">
+          <div class="d-flex justify-content-center">
+            <button class="nav-link text-muted" type="button" data-bs-toggle="offcanvas" data-bs-target="#collapseProducts" aria-controls="collapseProducts">
+              <svg viewBox="0 0 40 40" fill="#3D567E" xmlns="http://www.w3.org/2000/svg">
+                            <path
+                                d="m 23.670804,21.891453 c -1.021313,0 -1.868061,0.855619 -1.868061,1.871953 v 14.37764 C 21.802743,39.157381 22.649491,40 23.670804,40 H 38.118877 C 39.14019,40 40,39.157381 40,38.141046 v -14.37764 c 0,-1.016334 -0.85981,-1.871953 -1.881123,-1.871953 z m 0,1.871953 h 14.448073 v 14.37764 H 23.670804 Z M 23.670804,0 C 22.649491,0 21.802743,0.84261949 21.802743,1.8589536 V 16.236594 c 0,1.016334 0.846748,1.871953 1.868061,1.871953 H 38.118877 C 39.14019,18.108547 40,17.252928 40,16.236594 V 1.8589536 C 40,0.84261949 39.14019,0 38.118877,0 Z m 0,1.8589536 H 38.118877 V 16.236594 H 23.670804 Z M 1.8680601,21.891453 C 0.84674728,21.891453 0,22.747072 0,23.763406 v 14.37764 C 0,39.157381 0.84674728,40 1.8680601,40 H 16.316133 c 1.021313,0 1.881124,-0.842619 1.881124,-1.858954 v -14.37764 c 0,-1.016334 -0.859811,-1.871953 -1.881124,-1.871953 z m 0,1.871953 H 16.316133 v 14.37764 H 1.8680601 Z M 1.8680601,0 C 0.84674728,0 0,0.84261949 0,1.8589536 V 16.236594 c 0,1.016334 0.84674728,1.871953 1.8680601,1.871953 H 16.316133 c 1.021313,0 1.881124,-0.855619 1.881124,-1.871953 V 1.8589536 C 18.197257,0.84261949 17.337446,0 16.316133,0 Z m 0,1.8589536 H 16.316133 V 16.236594 H 1.8680601 Z" />
+                        </svg>
+            </button>
+          </div>
+          <div class="d-flex justify-content-center menu-text">продукты</div>
+        </li>
+
+        <li class="nav-item">
+          <div class="d-flex justify-content-center">
+            <button class="nav-link text-muted" type="button" data-bs-toggle="offcanvas" data-bs-target="#collapseCall" aria-controls="collapseCall">
+              <svg viewBox="0 0 40 40" fill="#3D567E" xmlns="http://www.w3.org/2000/svg">
+                            <path
+                                d="m 33.333374,38.348087 1.00295,-1.06195 c 0.944,-1.00295 2.18289,-2.0059 2.83186,-3.24484 0.826,-1.53393 0.236,-3.18584 -0.944,-4.30679 l -4.54278,-4.54277 c -1.23894,-1.29793 -2.83186,-1.9469 -4.48378,-0.944 l -3.89381,3.65782 -0.236,-0.118 c -0.5309,-0.354 -1.12095,-0.59 -1.71092,-1.00295 -3.59882,-2.35988 -6.48968,-5.30974 -8.73157,-9.02655 -0.177,-0.295 -0.295,-0.649 -0.472,-0.9439 l -0.118,-0.236 0.177,-0.118 c 0.177,-0.118 0.472,-0.413 0.59,-0.59 0.354,-0.354 0.708,-0.708 1.12095,-1.06195 0.354,-0.354 0.708,-0.767 1.06195,-1.12094 0.177,-0.236 0.472,-0.5309 0.59,-0.767 0.5309,-0.826 0.59,-1.23894 0.59,-2.18289 0,-1.710916 -2.41888,-3.657817 -3.53983,-4.778762 -0.885,-0.88495 -1.71092,-1.769911 -2.654868,-2.595869 -0.23596,-0.17699 -0.354,-0.29499 -0.58997,-0.47198 -1.297936,-0.82596 -2.477879,-0.70797 -3.775816,0 -0.41302,0.17693 -1.002991,0.7669 -1.356973,1.120887 -0.47198,0.47198 -0.94395,0.94395 -1.356934,1.415929 -0.35398,0.35398 -0.76696,0.64897 -1.061948,1.061947 C 1.474928,6.843658 1.179942,7.197641 0.884957,7.61062 0.294986,8.495576 0,9.852509 0,10.914455 c 0,3.71681 1.828911,7.78761 3.657821,10.914456 1.769914,2.94985 3.893811,5.66371 6.37169,8.0826 l 1.29794,1.29793 c 0.649,0.708 1.47493,1.29793 2.24189,1.9469 0.708,0.59 1.53393,1.17994 2.30089,1.71092 0.354,0.236 0.708,0.472 1.12095,0.708 C 19.941031,37.581121 25.132777,40 28.731601,40 c 1.76991,0 3.30384,-0.413 4.601773,-1.651913 z m -19.410053,-15.811212 2.83186,3.00885 2.30089,1.82891 c 1.00295,0.767 1.9469,1.29793 3.06785,1.88791 0.708,0.354 1.29794,0.708 2.0649,0.177 0.295,-0.177 0.649,-0.5309 0.885,-0.826 0.413,-0.413 0.767,-0.826 1.17994,-1.23894 0.5309,-0.5309 1.71092,-1.76991 2.47788,-1.76991 1.23894,0 1.59293,0.708 2.35989,1.47492 l 3.24484,3.24484 c 0.472,0.472 1.06195,0.944 1.29794,1.59292 0.354,0.826 -0.059,1.59292 -0.649,2.18289 l -2.0649,2.06489 c -2.83186,3.71681 -7.19765,1.71092 -10.737475,0.295 -1.12095,-0.472 -2.30089,-1.17994 -3.30384,-1.82891 -1.12095,-0.649 -2.1829,-1.35693 -3.18584,-2.0649 l -1.71092,-1.35693 c -0.177,-0.118 -0.354,-0.295 -0.59,-0.472 -0.5309,-0.472 -1.06195,-1.00295 -1.59293,-1.53393 -0.5309,-0.472 -1.06195,-1.00295 -1.53392,-1.53393 v 0 L 8.3776,25.486723 C 7.787635,24.719763 7.197657,23.8938 6.607686,23.12684 4.306798,19.882004 1.769922,14.926249 1.769922,10.914449 c 0,-2.536872 2.064899,-3.952805 3.657822,-5.545723 0.70796,-0.70796 1.651919,-1.592921 2.713868,-1.120944 0.41296,0.17699 0.82596,0.53097 1.179942,0.88496 0.53095,0.53097 1.06195,1.061947 1.533922,1.59292 0.5309,0.47198 1.00295,0.94396 1.53393,1.47493 0.413,0.41296 1.00295,0.94396 1.35693,1.415927 1.41593,1.828909 0.236,2.595869 -1.06195,3.893804 l -2.1239,2.1239 c -0.236,0.236 -0.354,0.5309 -0.354,0.885 0,0.5309 0.649,1.71091 0.944,2.18289 0.413,0.708 0.826,1.35693 1.23894,1.9469 0.472,0.649 1.00295,1.29793 1.533895,1.887862 z M 22.300912,0 h -0.236 c -0.177,0 -0.354,0.117994 -0.472,0.235988 -0.118,0.117994 -0.236,0.235989 -0.236,0.41298 0,0.412981 -0.059,0.648967 0.236,0.884955 0.177,0.17699 0.472,0.23599 0.708,0.23599 4.0708,0.82596 7.49263,2.595871 10.442491,5.545724 0.236,0.23596 0.413,0.41296 0.59,0.58996 0.177,0.23596 0.354,0.41296 0.5309,0.58996 0.649,0.76696 1.41593,1.828909 1.88791,2.713868 l 1.17994,2.24189 v 0 c 0.295,0.767 0.59,1.47493 0.767,2.30089 0.177,0.708 0.354,1.41593 0.5309,2.1239 C 38.584089,19.233034 40,18.643063 40,17.9351 40,16.93215 39.233,14.57226 38.87905,13.56932 38.34815,12.33038 37.7581,11.03245 37.05014,9.852507 36.46024,8.967557 35.75225,8.082598 35.10328,7.256639 34.69028,6.784659 34.21828,6.253689 33.74635,5.84071 33.27435,5.36873 32.80235,4.95575 32.27142,4.542774 29.616555,2.418879 26.548705,0.825959 23.185869,0.176991 22.890883,0.117994 22.595897,0 22.300912,0 Z m 9.26255,18.997052 c 0.59,0 1.06195,-0.177 1.06195,-0.826 0,-1.12095 -0.767,-3.06785 -1.29794,-4.0708 -1.12095,-2.12389 -3.24484,-4.306784 -5.42774,-5.427729 -1.23894,-0.58997 -2.83186,-1.297935 -4.24779,-1.297935 -0.236,0 -0.472,0.23596 -0.5309,0.41296 -0.177,0.29498 -0.177,0.64897 0,0.94395 0.118,0.177 0.236,0.29498 0.472,0.354 0.413,0.11798 0.826,0.177 1.23894,0.29498 1.71092,0.41296 3.24484,1.415928 4.60178,2.595869 h 0.05894 l 0.708,0.767 v 0.059 c 0.118,0.118 0.295,0.236 0.413,0.413 0.885,1.12095 1.71092,2.65487 2.0649,4.0708 0.118,0.472 0.236,1.71092 0.884862,1.710908 z" />
+                        </svg>
+            </button>
+          </div>
+          <div class="d-flex justify-content-center menu-text">позвонить</div>
+        </li>
+
+        <li class="nav-item">
+          <div class="d-flex justify-content-center">
+            <a href="#" class="nav-link text-muted">
+              <svg fill="#3D567E" viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg">
+                            <path
+                                d="m 20.333477,13.835498 a 1.006926,1.019567 0 0 0 -0.701153,0.311688 1.006926,1.019567 0 0 0 0.0171,1.43723 l 4.480547,4.467532 -3.916203,4.502165 a 1.006926,1.019567 0 0 0 0.08554,1.437229 1.006926,1.019567 0 0 0 1.41941,-0.08662 l 4.548916,-5.229399 a 1.0070267,1.019669 0 0 0 -0.0513,-1.402595 L 21.051733,14.12987 A 1.006926,1.019567 0 0 0 20.333477,13.835498 Z M 0.99187907,18.978354 A 1.006926,1.019567 0 0 0 2.3289065e-6,20 1.006926,1.019567 0 0 0 0.99187907,21.021645 H 25.515178 A 1.006926,1.019567 0 0 0 26.524157,20 1.006926,1.019567 0 0 0 25.515178,18.978354 Z M 3.6254831,0 C 1.6298381,0 2.3289065e-6,1.6676131 2.3289065e-6,3.6883117 V 15.307359 A 1.006926,1.019567 0 0 0 0.99187907,16.329004 1.006926,1.019567 0 0 0 2.0008573,15.307359 V 3.6883117 c 0,-0.9262908 0.7098197,-1.6450216 1.6246258,-1.6450216 H 36.374519 c 0.914807,0 1.624626,0.718731 1.624626,1.6450216 V 36.311687 c 0,0.926292 -0.709821,1.645022 -1.624626,1.645022 H 3.6254831 c -0.9148062,0 -1.6246258,-0.71873 -1.6246258,-1.645022 V 24.675325 A 1.006926,1.019567 0 0 0 0.99187907,23.653679 1.006926,1.019567 0 0 0 2.3289065e-6,24.675325 V 36.311687 C 2.3289065e-6,38.332386 1.6298381,40 3.6254831,40 H 36.374519 C 38.370164,40 40,38.332386 40,36.311687 V 3.6883117 C 40,1.6676131 38.370164,0 36.374519,0 Z" />
+                        </svg>
+            </a>
+          </div>
+          <div class="d-flex justify-content-center menu-text">войти</div>
+        </li>
+      </ul>
+    </footer>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      const footerItems = document.querySelectorAll('.adaptive-menu .footer .nav-item');
+      const homeItem = document.querySelector('.adaptive-menu .js-nav-item-home');
+
+      function resetFooterActive() {
+        footerItems.forEach(function (item) {
+          item.classList.remove('active');
+        });
+
+        if (homeItem) {
+          homeItem.classList.add('active');
+        }
+      }
+
+      document.querySelectorAll('.adaptive-menu .offcanvas').forEach(function (offcanvasEl) {
+        offcanvasEl.addEventListener('show.bs.offcanvas', function () {
+          footerItems.forEach(function (item) {
+            item.classList.remove('active');
+          });
+
+          const trigger = document.querySelector('[data-bs-target="#' + offcanvasEl.id + '"]');
+          const navItem = trigger ? trigger.closest('.nav-item') : null;
+
+          if (navItem) {
+            navItem.classList.add('active');
+          }
+        });
+
+        offcanvasEl.addEventListener('hidden.bs.offcanvas', function () {
+          resetFooterActive();
+        });
+      });
+    });
+  </script>
+</body>
+</html>

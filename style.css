@@ -1,0 +1,632 @@
+/* style.css
+   Статичная версия мобильного меню по мотивам текущих стилей aaacapital:
+   - footer.footer fixed-bottom высотой 87px
+   - активная иконка увеличивается
+   - продукты открываются через Bootstrap 5 Offcanvas
+   - внутренние пункты раскрываются через Bootstrap Collapse/Accordion
+*/
+
+:root {
+  --aaa-bg: #f5f6fb;
+  --aaa-white: #ffffff;
+  --aaa-silent-blue: #2C3B50;
+  --aaa-night-blue: #16345d;
+  --aaa-deep-blue: #15335C;
+  --aaa-azure: #2f6ec3;
+  --aaa-gray: #5C5B5E;
+  --aaa-border: #deeefc;
+  --aaa-shadow: rgba(87, 150, 209, 0.15);
+  --aaa-card-shadow: 0 3px 10px rgba(87, 150, 209, 0.18);
+  --aaa-footer-height: 87px;
+}
+
+html,
+body {
+  min-height: 100%;
+  background: var(--aaa-bg);
+  color: var(--aaa-silent-blue);
+  font-family: "Bellota Text", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+}
+
+body {
+  padding-bottom: calc(var(--aaa-footer-height) + env(safe-area-inset-bottom));
+}
+
+/* Демо-контент страницы */
+.demo-page {
+  min-height: 100vh;
+  padding: 24px 16px calc(120px + env(safe-area-inset-bottom));
+  background:
+    radial-gradient(circle at 85% 10%, rgba(87, 150, 209, 0.16), transparent 28%),
+    var(--aaa-bg);
+}
+
+.demo-card {
+  max-width: 560px;
+  margin: 0 auto;
+  padding: 24px;
+  border-radius: 24px;
+  background: var(--aaa-white);
+  box-shadow: var(--aaa-card-shadow);
+}
+
+.demo-card h1 {
+  margin: 0 0 12px;
+  color: var(--aaa-deep-blue);
+  font-size: 24px;
+  line-height: 1.2;
+  font-weight: 700;
+}
+
+.demo-card p {
+  margin: 0;
+  color: var(--aaa-gray);
+  font-size: 15px;
+  line-height: 1.5;
+}
+
+/* Нижнее меню: похоже на текущий footer.footer */
+.adaptive-menu .footer .dropdown-toggle::after {
+  display: none;
+}
+
+.adaptive-menu footer.footer,
+.adaptive-menu .footer.fixed-bottom {
+  height: var(--aaa-footer-height);
+  border-radius: 1rem 1rem 0 0;
+  z-index: 1040;
+  background-color: var(--aaa-white);
+  box-shadow: 0 -3px var(--aaa-shadow) !important;
+  padding-bottom: env(safe-area-inset-bottom);
+}
+
+.adaptive-menu .footer .nav {
+  min-height: 100%;
+  align-items: center;
+}
+
+.adaptive-menu .footer .nav-link {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  cursor: pointer;
+}
+
+.adaptive-menu .footer .nav-item {
+  color: var(--aaa-night-blue);
+  transition: color 0.25s ease;
+}
+
+.adaptive-menu .footer .nav-item a,
+.adaptive-menu .footer .nav-item button.nav-link {
+  height: 68px;
+  width: 68px;
+  border-radius: 50%;
+  padding: 16px;
+  z-index: 1;
+  border: 1px solid transparent;
+  background-color: var(--aaa-white);
+  color: var(--aaa-night-blue);
+  transition:
+    transform 0.25s ease,
+    background-color 0.25s ease,
+    border-color 0.25s ease,
+    color 0.25s ease;
+}
+
+.adaptive-menu .footer .nav-item button.nav-link {
+  appearance: none;
+  -webkit-appearance: none;
+  outline: 0;
+  box-shadow: none;
+}
+
+.adaptive-menu .footer .nav-item svg {
+  height: 100%;
+  width: 100%;
+  fill: currentColor;
+  transition: fill 0.25s ease;
+}
+
+.adaptive-menu .footer .nav-item .menu-text,
+.adaptive-menu .footer .nav-item > .d-flex:last-child {
+  margin-top: 2px;
+  color: var(--aaa-night-blue);
+  font-size: 12px;
+  line-height: 1;
+  transition: color 0.25s ease;
+}
+
+.adaptive-menu .footer .nav-item.active {
+  color: var(--aaa-azure);
+}
+
+.adaptive-menu .footer .nav-item.active a,
+.adaptive-menu .footer .nav-item.active button.nav-link {
+  background-color: var(--aaa-bg);
+  border: 1px solid var(--aaa-border);
+  color: var(--aaa-azure);
+  transform: scale(1.4) translateY(-20%);
+}
+
+.adaptive-menu .footer .nav-item.active .menu-text,
+.adaptive-menu .footer .nav-item.active > .d-flex:last-child {
+  color: var(--aaa-azure);
+}
+
+/* Bootstrap Offcanvas под старые id/классы */
+.adaptive-menu #collapseProducts.offcanvas,
+.adaptive-menu #collapseCall.offcanvas {
+  position: fixed;
+  z-index: 1045;
+  padding: 0;
+  top: auto;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: auto;
+  max-height: calc(100dvh - 72px);
+  overflow: visible;
+  border: 0;
+  border-radius: 24px 24px 0 0;
+  background: var(--aaa-bg);
+  box-shadow: 0 -3px var(--aaa-shadow);
+  padding-bottom: env(safe-area-inset-bottom);
+}
+
+.adaptive-menu #collapseProducts::before,
+.adaptive-menu #collapseCall::before {
+  position: absolute;
+  top: -12px;
+  left: 50%;
+  background: #7986aa;
+  border-radius: 2px;
+  width: 80px;
+  display: block;
+  transform: translate(-50%, 0);
+  content: "";
+  height: 4px;
+}
+
+.adaptive-menu #collapseProducts .offcanvas-header,
+.adaptive-menu #collapseCall .offcanvas-header {
+  position: relative;
+  padding: 0;
+  min-height: 0;
+}
+
+.adaptive-menu .nav-products-close {
+  position: absolute;
+  right: 16px;
+  top: 16px;
+  cursor: pointer;
+  line-height: 0;
+  z-index: 2;
+}
+
+.adaptive-menu .nav-products-close .closeButton,
+.adaptive-menu .nav-products-close button.closeButton {
+  width: 32px;
+  height: 32px;
+  border: 0;
+  background: transparent;
+  padding: 4px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Контейнер продуктов */
+.adaptive-menu .nav-products-content {
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+  -webkit-overflow-scrolling: touch;
+  overscroll-behavior: contain;
+  touch-action: pan-y;
+  display: flex;
+  width: 100%;
+  background: var(--aaa-bg);
+  flex-direction: column;
+  padding: 36px 16px calc(100px + env(safe-area-inset-bottom)) 16px;
+  max-height: calc(100dvh - 87px);
+  overflow-x: hidden;
+  overflow-y: auto;
+  position: relative;
+  border-radius: 24px 24px 0 0;
+}
+
+.adaptive-menu .nav-products-content::-webkit-scrollbar {
+  display: none;
+}
+
+.adaptive-menu .nav-products-content a {
+  text-decoration: none;
+}
+
+.adaptive-menu .nav-products-title {
+  margin: 36px 0 12px 0;
+  color: var(--aaa-silent-blue);
+  font-size: 20px;
+  line-height: 24px;
+  font-weight: 700;
+}
+
+.adaptive-menu .nav-products-title:first-of-type {
+  margin-top: 0;
+}
+
+.adaptive-menu .nav-products-row {
+  display: block;
+  margin: -8px -4px 0 -4px;
+}
+
+.adaptive-menu .products-accordion {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.adaptive-menu .products-accordion .accordion-item {
+  border: 0;
+  background: transparent;
+  border-radius: 8px;
+  overflow: visible;
+  box-shadow: none;
+}
+
+.adaptive-menu .products-accordion .accordion-header {
+  margin: 0;
+}
+
+/* Плитка верхнего уровня продукта */
+.adaptive-menu .nav-products-item {
+  margin: 8px 4px 0 4px;
+  width: calc(100% - 8px);
+  min-height: 75px;
+  position: relative;
+  overflow: hidden;
+  cursor: pointer;
+  padding: 12px 56px 12px 16px;
+  border: 0;
+  border-radius: 8px;
+  background: var(--aaa-white);
+  box-shadow: 0 4px 8px rgba(221, 228, 242, 0.7);
+  color: var(--aaa-silent-blue);
+  text-align: left;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.adaptive-menu .nav-products-item:before {
+  width: 4px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  content: "";
+  display: block;
+}
+
+.adaptive-menu .nav-products-item--opif:before {
+  background: linear-gradient(144.3deg, #ffe5a8 0, #ffc43a 102.69%);
+}
+
+.adaptive-menu .nav-products-item--iis:before {
+  background: linear-gradient(116.39deg, #63fba9 -56.45%, #3fafd3 215.05%);
+}
+
+.adaptive-menu .nav-products-item--bpif:before {
+  background: linear-gradient(116.39deg, #85f3ff -56.45%, #549de4 217.7%);
+}
+
+.adaptive-menu .nav-products-item--ss:before {
+  background: linear-gradient(144.52deg, #b0d8ff 0, #549de4 103.21%);
+}
+
+.adaptive-menu .nav-products-item--ipif:before {
+  background: linear-gradient(144.52deg, #c4b1ee 0, #946de7 103.21%);
+}
+
+.adaptive-menu .nav-products-name {
+  display: block;
+  margin: 0 0 6px 0;
+  color: var(--aaa-silent-blue);
+  font-size: 20px;
+  line-height: 24px;
+  font-weight: 700;
+}
+
+.adaptive-menu .nav-products-desc {
+  display: block;
+  color: var(--aaa-silent-blue);
+  font-size: 16px;
+  line-height: 20px;
+  font-weight: 400;
+}
+
+.adaptive-menu #collapseProducts .nav-products-arrow {
+  position: absolute;
+  right: 24px;
+  top: 50%;
+  width: 15px;
+  height: 8px;
+  fill: var(--aaa-deep-blue);
+  color: var(--aaa-deep-blue);
+  overflow: visible;
+  filter: drop-shadow(0 0 0 var(--aaa-deep-blue));
+  transform: translateY(-50%);
+  transition: transform .25s ease;
+}
+
+.adaptive-menu #collapseProducts .nav-products-arrow path {
+  fill: var(--aaa-deep-blue);
+  stroke: var(--aaa-deep-blue);
+  stroke-width: 1px;
+}
+
+.adaptive-menu #collapseProducts .nav-products-item[aria-expanded="true"] {
+  border-radius: 8px 8px 0 0;
+}
+
+.adaptive-menu #collapseProducts .nav-products-item[aria-expanded="true"] .nav-products-arrow {
+  transform: translateY(-50%) rotate(-90deg);
+}
+
+/* Раскрытый блок */
+.adaptive-menu #collapseProducts .nav-products-dropdown {
+  position: static;
+  width: calc(100% - 8px);
+  margin: 0 4px 8px 4px;
+  border: 0;
+  box-shadow: none;
+  background: transparent;
+  border-radius: 0 0 8px 8px;
+  padding: 12px 0 0;
+}
+
+/* Карточки продуктов, как в products-mobile */
+.adaptive-menu #collapseProducts .products-mobile-cards {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  overflow: visible;
+}
+
+.adaptive-menu #collapseProducts .products-mobile-cards__group-title {
+  font-size: 16px;
+  line-height: 1;
+  font-weight: 700;
+  color: var(--aaa-deep-blue);
+  padding-left: 15px;
+}
+
+.adaptive-menu #collapseProducts .products-mobile-cards__all {
+  padding-top: 2px;
+  padding-bottom: 10px;
+}
+
+.adaptive-menu #collapseProducts .products-mobile-cards__all-link {
+  margin-left: 15px;
+  color: var(--aaa-azure);
+}
+
+.adaptive-menu #collapseProducts a.products-mobile-cards__all-link:hover {
+  color: #3e7ae0;
+}
+
+.adaptive-menu #collapseProducts .products-mobile-card {
+  position: relative;
+  display: block;
+  text-decoration: none;
+  color: inherit;
+  background: var(--aaa-white);
+  border-radius: 8px;
+  box-shadow: var(--aaa-card-shadow);
+  overflow: visible;
+}
+
+.adaptive-menu #collapseProducts .products-mobile-card:hover,
+.adaptive-menu #collapseProducts .products-mobile-card:focus-within {
+  z-index: 20;
+}
+
+.adaptive-menu #collapseProducts .products-mobile-card__body {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 18px;
+  min-height: 125px;
+  padding: 10px 15px;
+  box-sizing: border-box;
+  overflow: visible;
+}
+
+.adaptive-menu #collapseProducts .products-mobile-card__content {
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 auto;
+  min-width: 0;
+  align-self: stretch;
+  overflow: visible;
+}
+
+.adaptive-menu #collapseProducts .products-mobile-card__title {
+  margin-bottom: 8px;
+  color: var(--aaa-deep-blue);
+  font-size: 16px;
+  line-height: 1.2;
+  font-weight: 500;
+}
+
+.adaptive-menu #collapseProducts .products-mobile-card__desc {
+  margin-bottom: 8px;
+  color: var(--aaa-gray);
+  font-size: 12px;
+  line-height: 1.35;
+  min-height: 40px;
+}
+
+.adaptive-menu #collapseProducts .products-mobile-card--iis .products-mobile-card__desc {
+  min-height: 0;
+}
+
+.adaptive-menu #collapseProducts .text-orange {
+  color: #cc8228;
+}
+
+.adaptive-menu #collapseProducts .products-mobile-card__yield {
+  margin-top: auto;
+  margin-bottom: 8px;
+  font-size: 20px;
+  line-height: 1;
+  font-weight: 700;
+  letter-spacing: 0;
+  vertical-align: middle;
+  overflow: visible;
+}
+
+.adaptive-menu #collapseProducts .products-mobile-card__image-wrap {
+  flex: 0 0 85px;
+  width: 85px;
+  height: 85px;
+  border-radius: 50%;
+  background: #dfeefa;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  position: relative;
+  align-self: center;
+  box-shadow:
+    inset 0 10px 16px rgba(105, 160, 210, 0.16),
+    0 10px 18px rgba(85, 150, 209, 0.14);
+}
+
+.adaptive-menu #collapseProducts .products-mobile-card__image-wrap::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 0;
+  background: radial-gradient(
+    circle at center top,
+    rgba(105, 160, 210, 0.18) 0%,
+    rgba(180, 215, 242, 0.10) 28%,
+    rgba(223, 238, 250, 0) 58%
+  );
+}
+
+.adaptive-menu #collapseProducts .products-mobile-card__image,
+.adaptive-menu #collapseProducts .products-mobile-card__image-placeholder {
+  position: relative;
+  z-index: 1;
+  display: block;
+  width: 65px;
+  height: 65px;
+  object-fit: contain;
+}
+
+.adaptive-menu #collapseProducts .products-mobile-card__image-placeholder {
+  border-radius: 50%;
+  background:
+    radial-gradient(circle at 30% 30%, #ffffff 0, rgba(255,255,255,.75) 30%, transparent 31%),
+    linear-gradient(135deg, #aacde8, #6d9dd0);
+  color: #ffffff;
+  font-size: 26px;
+  font-weight: 700;
+  line-height: 65px;
+  text-align: center;
+}
+
+/* Звонок */
+.adaptive-menu #collapseCall .swipe-close-content {
+  border-radius: 24px 24px 0 0;
+  background: var(--aaa-white);
+}
+
+.adaptive-menu #collapseCall .call-content {
+  padding: 64px 36px calc(44px + env(safe-area-inset-bottom));
+  background: var(--aaa-white);
+  border-radius: 24px 24px 0 0;
+}
+
+.adaptive-menu .btn__secondary,
+.adaptive-menu .btn-call {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 52px;
+  width: 100%;
+  border-radius: 10px;
+  border: 1px solid var(--aaa-deep-blue);
+  background: #46638F;
+  color: #FFFFFF;
+  box-shadow: 0 4px 10px rgba(21, 51, 92, 0.15);
+  font-size: 16px;
+  line-height: 1;
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.adaptive-menu .btn__secondary:hover,
+.adaptive-menu .btn-call:hover {
+  background: #3f5a82;
+  color: #FFFFFF;
+  text-decoration: none;
+}
+
+/* Backdrop чуть ближе к старому body--blured */
+.offcanvas-backdrop.show {
+  opacity: 1;
+  background-color: rgba(183, 200, 215, 0.70);
+  backdrop-filter: blur(8px);
+}
+
+*:focus {
+  outline: none;
+}
+
+a:hover,
+a.nav-link {
+  cursor: pointer;
+}
+
+/* Десктопу это демо не нужно */
+@media (min-width: 992px) {
+  body {
+    padding-bottom: 0;
+  }
+
+  .adaptive-menu .footer,
+  .adaptive-menu #collapseProducts,
+  .adaptive-menu #collapseCall {
+    display: none !important;
+  }
+}
+
+/* Узкие экраны */
+@media (max-width: 380px) {
+  .adaptive-menu .footer .nav-item a,
+  .adaptive-menu .footer .nav-item button.nav-link {
+    width: 60px;
+    height: 60px;
+    padding: 14px;
+  }
+
+  .adaptive-menu .footer .nav {
+    padding-left: 12px !important;
+    padding-right: 12px !important;
+  }
+
+  .adaptive-menu .nav-products-name {
+    font-size: 18px;
+    line-height: 22px;
+  }
+
+  .adaptive-menu .nav-products-desc {
+    font-size: 14px;
+    line-height: 18px;
+  }
+}
