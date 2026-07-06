@@ -632,68 +632,70 @@ a.nav-link {
 }
 
 /* =========================================================
-   BOOTSTRAP OFFCANVAS STATE, БЕЗ active И БЕЗ СВОЕГО JS
-   Bootstrap сам добавляет .showing / .show / .hiding на offcanvas.
-   Мы через :has() поднимаем нужную кнопку в нижнем меню.
+   NATIVE BOOTSTRAP OFFCANVAS
+   Возвращаем стандартную логику Bootstrap:
+   - offcanvas перекрывает нижнюю плашку;
+   - footer НЕ находится поверх offcanvas;
+   - без mobile-sheet;
+   - без кастомного JS;
+   - без margin-bottom: 87px.
    ========================================================= */
 
-/* Домик больше не активен по умолчанию */
+/* Footer ниже Bootstrap offcanvas/backdrop */
+.adaptive-menu footer.footer,
+.adaptive-menu .footer.fixed-bottom {
+  z-index: 1030 !important;
+}
+
+/* Нативная bottom-панель Bootstrap, но с нужной высотой и скруглением */
+.adaptive-menu #collapseProducts.offcanvas,
+.adaptive-menu #collapseCall.offcanvas {
+  position: fixed !important;
+  z-index: 1045 !important;
+  top: auto !important;
+  bottom: 0 !important;
+  left: 0 !important;
+  right: 0 !important;
+  height: auto !important;
+  max-height: calc(100dvh - 72px) !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  overflow: visible !important;
+  border: 0 !important;
+  border-radius: 24px 24px 0 0 !important;
+  background: var(--aaa-bg) !important;
+  box-shadow: 0 -3px var(--aaa-shadow) !important;
+}
+
+/* Overlay стандартно перекрывает footer */
+.offcanvas-backdrop,
+.offcanvas-backdrop.show {
+  z-index: 1040 !important;
+  bottom: 0 !important;
+  height: 100% !important;
+}
+
+/* Контент продуктов скроллится внутри панели */
+.adaptive-menu #collapseProducts .nav-products-content {
+  max-height: calc(100dvh - 87px) !important;
+  padding: 36px 16px calc(100px + env(safe-area-inset-bottom)) 16px !important;
+  overflow-y: auto !important;
+  overflow-x: hidden !important;
+  -webkit-overflow-scrolling: touch;
+}
+
+/* Звонок внутри панели */
+.adaptive-menu #collapseCall .call-content {
+  padding: 64px 36px calc(44px + env(safe-area-inset-bottom)) !important;
+}
+
+/* Домик не активен по умолчанию, если сервер явно не поставил .active */
 .adaptive-menu .footer .nav-item:not(.active) a,
 .adaptive-menu .footer .nav-item:not(.active) button.nav-link {
   transform: none;
 }
 
-/* Продукты: панель открывается или открыта */
-.adaptive-menu:has(#collapseProducts.showing) .footer .nav-item--products button.nav-link,
-.adaptive-menu:has(#collapseProducts.show) .footer .nav-item--products button.nav-link {
-  height: 68px !important;
-  width: 68px !important;
-  border-radius: 50% !important;
-  padding: 16px !important;
-  z-index: 2 !important;
-  background-color: var(--aaa-bg) !important;
-  border: 1px solid var(--aaa-border) !important;
-  color: var(--aaa-azure) !important;
-  transform: scale(1.4) translateY(-20%) !important;
-}
-
-/* Звонок: панель открывается или открыта */
-.adaptive-menu:has(#collapseCall.showing) .footer .nav-item--call button.nav-link,
-.adaptive-menu:has(#collapseCall.show) .footer .nav-item--call button.nav-link {
-  height: 68px !important;
-  width: 68px !important;
-  border-radius: 50% !important;
-  padding: 16px !important;
-  z-index: 2 !important;
-  background-color: var(--aaa-bg) !important;
-  border: 1px solid var(--aaa-border) !important;
-  color: var(--aaa-azure) !important;
-  transform: scale(1.4) translateY(-20%) !important;
-}
-
-/* Текст под активной кнопкой */
-.adaptive-menu:has(#collapseProducts.showing) .footer .nav-item--products .menu-text,
-.adaptive-menu:has(#collapseProducts.show) .footer .nav-item--products .menu-text,
-.adaptive-menu:has(#collapseProducts.showing) .footer .nav-item--products > .d-flex:last-child,
-.adaptive-menu:has(#collapseProducts.show) .footer .nav-item--products > .d-flex:last-child,
-.adaptive-menu:has(#collapseCall.showing) .footer .nav-item--call .menu-text,
-.adaptive-menu:has(#collapseCall.show) .footer .nav-item--call .menu-text,
-.adaptive-menu:has(#collapseCall.showing) .footer .nav-item--call > .d-flex:last-child,
-.adaptive-menu:has(#collapseCall.show) .footer .nav-item--call > .d-flex:last-child {
-  color: var(--aaa-azure) !important;
-}
-
-/* Иконка внутри поднятой кнопки */
-.adaptive-menu:has(#collapseProducts.showing) .footer .nav-item--products button.nav-link svg,
-.adaptive-menu:has(#collapseProducts.show) .footer .nav-item--products button.nav-link svg,
-.adaptive-menu:has(#collapseCall.showing) .footer .nav-item--call button.nav-link svg,
-.adaptive-menu:has(#collapseCall.show) .footer .nav-item--call button.nav-link svg {
-  fill: currentColor !important;
-}
-
-/* Если надо держать кнопку поднятой во время закрытия, раскомментировать:
-.adaptive-menu:has(#collapseProducts.hiding) .footer .nav-item--products button.nav-link,
-.adaptive-menu:has(#collapseCall.hiding) .footer .nav-item--call button.nav-link {
-  transform: scale(1.4) translateY(-20%) !important;
-}
+/*
+  Active для offcanvas-кнопок не нужен:
+  когда панель открыта, footer перекрыт самой панелью/overlay.
 */
