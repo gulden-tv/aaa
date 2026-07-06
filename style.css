@@ -630,3 +630,70 @@ a.nav-link {
     line-height: 18px;
   }
 }
+
+/* =========================================================
+   BOOTSTRAP OFFCANVAS STATE, БЕЗ active И БЕЗ СВОЕГО JS
+   Bootstrap сам добавляет .showing / .show / .hiding на offcanvas.
+   Мы через :has() поднимаем нужную кнопку в нижнем меню.
+   ========================================================= */
+
+/* Домик больше не активен по умолчанию */
+.adaptive-menu .footer .nav-item:not(.active) a,
+.adaptive-menu .footer .nav-item:not(.active) button.nav-link {
+  transform: none;
+}
+
+/* Продукты: панель открывается или открыта */
+.adaptive-menu:has(#collapseProducts.showing) .footer .nav-item--products button.nav-link,
+.adaptive-menu:has(#collapseProducts.show) .footer .nav-item--products button.nav-link {
+  height: 68px !important;
+  width: 68px !important;
+  border-radius: 50% !important;
+  padding: 16px !important;
+  z-index: 2 !important;
+  background-color: var(--aaa-bg) !important;
+  border: 1px solid var(--aaa-border) !important;
+  color: var(--aaa-azure) !important;
+  transform: scale(1.4) translateY(-20%) !important;
+}
+
+/* Звонок: панель открывается или открыта */
+.adaptive-menu:has(#collapseCall.showing) .footer .nav-item--call button.nav-link,
+.adaptive-menu:has(#collapseCall.show) .footer .nav-item--call button.nav-link {
+  height: 68px !important;
+  width: 68px !important;
+  border-radius: 50% !important;
+  padding: 16px !important;
+  z-index: 2 !important;
+  background-color: var(--aaa-bg) !important;
+  border: 1px solid var(--aaa-border) !important;
+  color: var(--aaa-azure) !important;
+  transform: scale(1.4) translateY(-20%) !important;
+}
+
+/* Текст под активной кнопкой */
+.adaptive-menu:has(#collapseProducts.showing) .footer .nav-item--products .menu-text,
+.adaptive-menu:has(#collapseProducts.show) .footer .nav-item--products .menu-text,
+.adaptive-menu:has(#collapseProducts.showing) .footer .nav-item--products > .d-flex:last-child,
+.adaptive-menu:has(#collapseProducts.show) .footer .nav-item--products > .d-flex:last-child,
+.adaptive-menu:has(#collapseCall.showing) .footer .nav-item--call .menu-text,
+.adaptive-menu:has(#collapseCall.show) .footer .nav-item--call .menu-text,
+.adaptive-menu:has(#collapseCall.showing) .footer .nav-item--call > .d-flex:last-child,
+.adaptive-menu:has(#collapseCall.show) .footer .nav-item--call > .d-flex:last-child {
+  color: var(--aaa-azure) !important;
+}
+
+/* Иконка внутри поднятой кнопки */
+.adaptive-menu:has(#collapseProducts.showing) .footer .nav-item--products button.nav-link svg,
+.adaptive-menu:has(#collapseProducts.show) .footer .nav-item--products button.nav-link svg,
+.adaptive-menu:has(#collapseCall.showing) .footer .nav-item--call button.nav-link svg,
+.adaptive-menu:has(#collapseCall.show) .footer .nav-item--call button.nav-link svg {
+  fill: currentColor !important;
+}
+
+/* Если надо держать кнопку поднятой во время закрытия, раскомментировать:
+.adaptive-menu:has(#collapseProducts.hiding) .footer .nav-item--products button.nav-link,
+.adaptive-menu:has(#collapseCall.hiding) .footer .nav-item--call button.nav-link {
+  transform: scale(1.4) translateY(-20%) !important;
+}
+*/
