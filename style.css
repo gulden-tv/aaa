@@ -787,3 +787,38 @@ a.nav-link {
   overflow-y: auto;
   padding-top: 24px !important;
 }
+
+/* =========================================================
+   COMPACT CLOSE TOP
+   Верхний блок только под крестик.
+   Заголовок остается внутри скроллируемого .nav-products-content.
+   ========================================================= */
+
+.adaptive-menu .nav-products-top {
+  min-height: 52px !important;
+  padding: 12px 16px 4px 16px !important;
+  background: var(--aaa-bg);
+}
+
+.adaptive-menu #collapseCall .nav-products-top {
+  background: var(--aaa-white);
+}
+
+.adaptive-menu .nav-products-top .nav-products-heading {
+  display: none !important;
+}
+
+.adaptive-menu .nav-products-top .nav-products-close {
+  position: absolute;
+  right: 16px;
+  top: 12px;
+  z-index: 4;
+}
+
+.adaptive-menu #collapseProducts .nav-products-content {
+  padding-top: 0 !important;
+}
+
+.adaptive-menu #collapseProducts .nav-products-content > .nav-products-title:first-child {
+  margin-top: 0 !important;
+}
